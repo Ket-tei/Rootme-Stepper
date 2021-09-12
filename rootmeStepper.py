@@ -94,7 +94,7 @@ def get_challenges(page):
 
 def get_points(page):
 	soup = BeautifulSoup(page, 'html.parser')
-	points = int(soup.find_all("h3")[5].text.strip())
+	points = int(soup.find_all("h3")[4].text.strip())
 	return points
 
 def get_combinations(challenges, goal, depth):
