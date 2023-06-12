@@ -79,8 +79,24 @@ def find_combinations(challenges, points, goal, depth, current_combination, vali
                 find_combinations(challenges, new_points, goal, new_depth, new_combination, valid_combinations, new_used_challenges)
                 find_combinations(challenges, points, goal, new_depth, current_combination, valid_combinations, used_challenges)
 
-def display_results(username, points, goal, combinations):
+def display_welcome():
     pass
+
+
+def display_results(username, points, goal, combinations):
+    print(f"{Fore.BLUE}[*]{Style.RESET_ALL} {username} : {points}")
+    print(f"{Fore.BLUE}[*]{Style.RESET_ALL} Goal : {goal}")
+    print()
+    print(f"{Fore.GREEN}[+]{Style.RESET_ALL} Found {Fore.YELLOW}{len(combinations)}{Style.RESET_ALL} combinations")
+    print()
+    print(f"{Fore.CYAN}=========================={Style.RESET_ALL}")
+    print()
+    for i, combination in enumerate(combinations):
+        print(f"{Fore.GREEN}[+]{Style.RESET_ALL} {i+1}")
+        for challenge in combination:
+            c, n, p = challenge
+            print(f"\t{Fore.BLUE}[*]{Style.RESET_ALL} {p}\t: [{c}] {n}")
+        print()
 
 
 def parse_args():
@@ -97,6 +113,8 @@ def parse_args():
 
 def main():
     colorama_init()
+
+    display_welcome()
 
     username, goal, depth, add_categories, exclude_categories = parse_args()
 
