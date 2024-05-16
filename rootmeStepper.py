@@ -30,7 +30,7 @@ def get_challenges(page):
 
 
 def get_points(page):
-	points = int(page.find_all("h3")[5].text)
+	points = int(page.find_all("h3")[4].text)
 	return points
 
 
